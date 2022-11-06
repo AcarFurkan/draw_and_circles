@@ -16,25 +16,10 @@ class DrawCubit extends Cubit<DrawState> {
   }
   Duration animDuration = const Duration(milliseconds: 5);
   List<Dot> drawCircle(Size size, double density) {
-    // if (circles != null) {
-    //   circles
-    // }
-    print("11");
     if (circles != null) {
-      // for (var element in circles!) {
-      //   print(2);
-      //   var speed =
-      //       Offset(Random().nextDouble() * 10, Random().nextDouble() * 10);
-      //   element = element + speed;
-      //   //  element = Offset(element.dx + 100, element.dy + 100);
-      // }
       for (var i = 0; i < circles!.length; i++) {
-        // circles![i].position = circles![i].position +
-        //     Offset(Random().nextDouble() * 10, Random().nextDouble() * 10);
         circles![i] = Dot.nextDot(
             circles![i], animDuration.inMilliseconds.toDouble() / 50, size);
-
-        //   circles![i] = Offset(circles![i].dx + 5, circles![i].dy);
       }
       return circles!;
     }
@@ -73,10 +58,7 @@ class Dot {
   Dot(this.position, this.speed);
 
   factory Dot.nextDot(Dot dot, double time, Size size) {
-    const double radius = 10;
-
-   // print(time);
-   // print(dot.speed);
+    const double radius = 10; 
     if (dot.position.dx < radius) {
       dot.speed = Offset(-dot.speed.dx, dot.speed.dy);
     }
